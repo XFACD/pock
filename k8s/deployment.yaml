@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pock
+  template:
+    metadata:
+      labels:
+        app: pock
+    spec:
+      containers:
+      - image: okteto.dev/pock:latest
+        name: pock
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/FitApp-html.zip"
+        - name: Vless_UUID
+          value: "ae32b4d1-357b-4612-967d-18ac5c5c9a01"
+        - name: Vless_Path
+          value: "/w34te644wtegu655"
+        - name: Vmess_UUID
+          value: "ae32b4d1-357b-4612-967d-18ac5c5c9a01"
+        - name: Vmess_Path
+          value: "/fs4745ehru67ujet"
+        - name: Share_Path
+          value: "/v2link"
